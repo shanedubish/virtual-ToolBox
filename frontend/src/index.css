@@ -9,6 +9,7 @@ body::after {
   background-image: url(oldtools.jpeg);
   background-size: cover;
   background-position: center;
+  background-repeat: repeat-y;
 
   opacity: 0.4;
   top: 0;
@@ -22,4 +23,21 @@ body::after {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.oneTool {
+  border: 1px solid black;
+  width: 20%;
+
+  align-content: center;
+}
+main {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 90%;
+  flex-flow: wrap;
+}
+img {
+  width: 80%;
+  border-radius: 15px;
 }

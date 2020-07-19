@@ -26,7 +26,7 @@ SECRET_KEY = '05p#0&f=ajlbsg@ls2z2pz9qp7@nkcr9fl7d8l6)(_v1xb@-ob'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost:8000', 'virtual-tool-box-app.herokuapp.com']
 
 
 # Application definition
