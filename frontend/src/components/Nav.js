@@ -5,8 +5,17 @@ class Nav extends React.Component {
   render() {
     return (
       <nav>
-        <Link to="/">About</Link>
-        <Link to="/main">Main</Link>
+        <div className="nav">
+          <Link to="/">
+            <h2>virtual-ToolBox</h2>
+          </Link>
+          <Link to="/main">
+            <h2>Main</h2>
+          </Link>
+          <Link to="/add">
+            <h2>Add</h2>
+          </Link>
+        </div>
       </nav>
     );
   }

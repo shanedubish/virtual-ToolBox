@@ -45,6 +45,7 @@ img {
   border-radius: 15px;
   margin: 0 auto;
   padding-top: 1em;
+  height: 40%;
 }
 .toolForm {
   font-size: 2em;
@@ -54,7 +55,19 @@ form {
   margin: 0 auto;
 }
 input {
-  font-size: 1em;
+  font-size: 0.8em;
   width: 30%;
   margin: 10px;
+}
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  height: 3.5em;
+  background-color: #395b91;
+}
+.nav h2 {
+  color: white;
+  margin: 0.7em;
 }
