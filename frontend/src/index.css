@@ -9,14 +9,13 @@ body::after {
   background-image: url(oldtools.jpeg);
   background-size: cover;
   background-position: center;
-  background-repeat: repeat-y;
 
   opacity: 0.4;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
-  position: absolute;
+  position: fixed;
   z-index: -1;
 }
 
@@ -26,9 +25,13 @@ code {
 }
 .oneTool {
   border: 1px solid black;
-  width: 20%;
-
-  align-content: center;
+  width: 25%;
+  border-radius: 15px;
+  padding-top: 20px;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 15px 7px rgba(255, 255, 255, 0.92);
+  box-shadow: 0px 0px 15px 7px rgba(255, 255, 255, 0.92);
+  margin-top: 1.6em;
 }
 main {
   display: flex;
@@ -40,4 +43,18 @@ main {
 img {
   width: 80%;
   border-radius: 15px;
+  margin: 0 auto;
+  padding-top: 1em;
+}
+.toolForm {
+  font-size: 2em;
+  text-align: center;
+}
+form {
+  margin: 0 auto;
+}
+input {
+  font-size: 1em;
+  width: 30%;
+  margin: 10px;
 }

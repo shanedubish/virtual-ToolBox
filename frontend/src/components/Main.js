@@ -1,10 +1,14 @@
 import React from "react";
 import axios from "axios";
+
 class Main extends React.Component {
   state = {
     tools: [],
   };
   componentDidMount() {
+    this.getTools();
+  }
+  getTools = () => {
     axios
       .get("http://127.0.0.1:8000/api/", (err) => {
         console.log(err);
@@ -13,7 +17,7 @@ class Main extends React.Component {
         this.setState({ tools: response.data });
         console.log(this.state.tools);
       });
-  }
+  };
 
   createTool = (event) => {
     event.preventDefault();
@@ -61,7 +65,7 @@ class Main extends React.Component {
       <div className="main">
         <h3>Main Page</h3>
 
-        <div className="t">
+        <div className="toolForm">
           <h2>Add a Tool to your ToolBox</h2>
           <form className="addcar" onSubmit={this.createTool}>
             <input
@@ -95,7 +99,7 @@ class Main extends React.Component {
             <br />
             <input
               type="submit"
-              value="Create New Car"
+              value="Create New Tool"
               className="btn-sm btn-primary"
             />
           </form>
@@ -106,11 +110,27 @@ class Main extends React.Component {
             return (
               <div className="oneTool">
                 <img src={tool.image} alt="" />
-                <h3>{tool.name}</h3>
-                <h3>{tool.make}</h3>
+                <h2>Name: {tool.name}</h2>
+                <h2>Make: {tool.make}</h2>
 
-                <h3>{tool.location}</h3>
-                <h3>{tool.type}</h3>
+                <h2>Location: {tool.location}</h2>
+                <h2>Type: {tool.type}</h2>
+                <h2>
+                  <a
+                    href={`https://www.amazon.com/s?k=${tool.name}&ref=nb_sb_noss_2`}
+                    target="_blank"
+                  >
+                    Amazon
+                  </a>
+                </h2>
+                <h2>
+                  <a
+                    href={`https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1311.R1.TR11.TRC1.A0.H1.Xmider.TRS0&_nkw=${tool.name}&_sacat=0`}
+                    target="_blank"
+                  >
+                    Ebay
+                  </a>
+                </h2>
               </div>
             );
           })}

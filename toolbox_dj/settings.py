@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost:8000', 'virtual-tool-box-app.herokuapp.com']
 
-
+CSRF_TRUSTED_ORIGINS = ['localhost:8000', 'virtual-tool-box-app.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
@@ -139,7 +139,8 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.AllowAny',
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
 
