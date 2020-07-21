@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import About from "./components/About.js";
@@ -7,7 +7,7 @@ import Add from "./components/Add.js";
 import Navigation from "./components/Nav.js";
 import axios from "axios";
 
-class App extends Component {
+class App extends React.Component {
   state = { tools: [] };
 
   //Get Tools
@@ -37,7 +37,9 @@ class App extends Component {
         image: this.state.newImage,
       })
       .then((response) => {
-        this.setState({ tools: response.data });
+        this.setState({ tools: [response.data, ...this.state.tools] });
+        this.getTools();
+
         console.log(this.state.tools);
         // window.location.reload(false);
       });
@@ -66,81 +68,6 @@ class App extends Component {
     this.setState({ newImage: event.target.value });
   };
 
-  // Update a Tool
-  updateThisTool = (event) => {
-    event.preventDefault();
-
-    const id = event.target.getAttribute("id");
-    console.log(id);
-    axios
-      .put("http://127.0.0.1:8000/api/" + id, {
-        id: id,
-        name: this.state.updateTool,
-        make: this.state.updateMake,
-        cost: this.state.updateCost,
-        location: this.state.updateLocation,
-        type: this.state.updateType,
-        image: this.state.updateImage,
-      })
-      .then((response) => {
-        this.setState({ cars: response.data });
-      });
-    console.log("don't change me !!!");
-  };
-
-  updateTool = (event) => {
-    //   const id = event.target.getAttribute("id");
-    //   if (event.target.value === "") {
-    //    this.setState({ newTool: this.state[id].name });
-    //   } else {
-    this.setState({ newTool: event.target.value });
-    //   }
-  };
-  updateMake = (event) => {
-    // const id = event.target.getAttribute("id");
-    // if (event.target.value === "") {
-    // this.setState({ newTool: this.state[id].make });
-    // } else {
-    this.setState({ newTool: event.target.value });
-    // }
-  };
-
-  updateCost = (event) => {
-    //   const id = event.target.getAttribute("id");
-    //   if (event.target.value === "") {
-    //     this.setState({ newTool: this.state[id].cost });
-    //   } else {
-    this.setState({ newTool: event.target.value });
-    //   }
-  };
-
-  updateLocation = (event) => {
-    // const id = event.target.getAttribute("id");
-    // if (event.target.value === "") {
-    //   this.setState({ newTool: this.state[id].location });
-    // } else {
-    this.setState({ newTool: event.target.value });
-    // }
-  };
-
-  updateType = (event) => {
-    // const id = event.target.getAttribute("id");
-    // if (event.target.value === "") {
-    //   this.setState({ newTool: this.state[id].type });
-    // } else {
-    this.setState({ newTool: event.target.value });
-    // }
-  };
-
-  updateImage = (event) => {
-    // const id = event.target.getAttribute("id");
-    // if (event.target.value === "") {
-    //   this.setState({ newTool: this.state[id].image });
-    // } else {
-    this.setState({ newTool: event.target.value });
-    // }
-  };
-
   //  delete this Tool
   deleteTool = (event) => {
     console.log(event.target.value);
@@ -165,7 +92,6 @@ class App extends Component {
                   getTools={this.getTools}
                   tools={this.state.tools}
                   deleteTool={this.deleteTool}
-                  updateThisTool={this.updateThisTool}
                   upadateTool={this.upadateTool}
                   upadateMake={this.upadateMake}
                   upadateCost={this.upadateCost}

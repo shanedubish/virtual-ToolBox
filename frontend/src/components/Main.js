@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 class Main extends React.Component {
   state = {
@@ -12,6 +13,82 @@ class Main extends React.Component {
     this.setState({
       editToggle: !this.state.editToggle,
     });
+  };
+
+  // Update a Tool
+  updateThisTool = (event) => {
+    event.preventDefault();
+    console.log(this.state.updateTool);
+
+    const id = event.target.getAttribute("id");
+    console.log(id);
+    axios
+      .put("http://127.0.0.1:8000/api/" + id, {
+        name: this.state.updateTool,
+        make: this.state.updateMake,
+        cost: this.state.updateCost,
+        location: this.state.updateLocation,
+        type: this.state.updateType,
+        image: this.state.updateImage,
+      })
+      .then(() => {
+        this.props.getTools();
+      });
+    console.log("don't change me !!!");
+  };
+
+  updateTool = (event) => {
+    const id = event.target.getAttribute("id");
+    if (event.target.value === null) {
+      this.setState({ updateTool: this.state[id].name });
+    } else {
+      this.setState({ updateTool: event.target.value });
+    }
+  };
+  updateMake = (event) => {
+    console.log(event.target.value);
+    const id = event.target.getAttribute("id");
+    if (event.target.value === null) {
+      this.setState({ updateTool: this.state[id].make });
+    } else {
+      this.setState({ updateMake: event.target.value });
+    }
+  };
+
+  updateCost = (event) => {
+    const id = event.target.getAttribute("id");
+    if (event.target.value === null) {
+      this.setState({ updateTool: this.state[id].cost });
+    } else {
+      this.setState({ updateCost: event.target.value });
+    }
+  };
+
+  updateLocation = (event) => {
+    const id = event.target.getAttribute("id");
+    if (event.target.value === null) {
+      this.setState({ updateTool: this.state[id].location });
+    } else {
+      this.setState({ updateLocation: event.target.value });
+    }
+  };
+
+  updateType = (event) => {
+    const id = event.target.getAttribute("id");
+    if (event.target.value === null) {
+      this.setState({ updateTool: this.state[id].type });
+    } else {
+      this.setState({ updateType: event.target.value });
+    }
+  };
+
+  updateImage = (event) => {
+    const id = event.target.getAttribute("id");
+    if (event.target.value === null) {
+      this.setState({ updateTool: this.state[id].image });
+    } else {
+      this.setState({ updateImage: event.target.value });
+    }
   };
 
   render() {
@@ -39,45 +116,45 @@ class Main extends React.Component {
                 </button>
                 {this.state.editToggle ? (
                   <div id={tool.id}>
-                    <form onSubmit={this.props.updateThisTool} id={tool.id}>
+                    <form onSubmit={this.updateThisTool} id={tool.id}>
                       <input
                         id={i}
-                        onKeyUp={this.props.updateTool}
+                        onKeyUp={this.updateTool}
                         type="text"
                         placeholder="Tool Name"
                       />
                       <br />
                       <input
                         id={i}
-                        onKeyUp={this.props.updateType}
+                        onKeyUp={this.updateType}
                         type="text"
                         placeholder="Type"
                       />
                       <br />
                       <input
                         id={tool.id}
-                        onKeyUp={this.props.updateMake}
+                        onKeyUp={this.updateMake}
                         type="text"
                         placeholder="Tool Make"
                       />
                       <br />
                       <input
                         id={i}
-                        onKeyUp={this.props.updateCost}
+                        onKeyUp={this.updateCost}
                         type="text"
                         placeholder="Cost "
                       />
                       <br />
                       <input
                         id={i}
-                        onKeyUp={this.props.updateLocation}
+                        onKeyUp={this.updateLocation}
                         type="text"
                         placeholder="Location"
                       />
                       <br />
                       <input
                         id={i}
-                        onKeyUp={this.props.updateImage}
+                        onKeyUp={this.updateImage}
                         type="text"
                         placeholder="Image"
                       />

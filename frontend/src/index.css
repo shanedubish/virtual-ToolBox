@@ -39,6 +39,7 @@ main {
   flex-direction: row;
   width: 90%;
   flex-flow: wrap;
+  margin: 0 auto;
 }
 img {
   width: 80%;
@@ -54,10 +55,14 @@ img {
 form {
   margin: 0 auto;
 }
-input {
+.toolForm input {
   font-size: 0.8em;
   width: 30%;
   margin: 10px;
+}
+.oneTool input {
+  font-size: 1em;
+  width: 60%;
 }
 .nav {
   display: flex;
@@ -70,4 +75,15 @@ input {
 .nav h2 {
   color: white;
   margin: 0.7em;
+}
+@media screen and (max-width: 840px) {
+  main {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .oneTool {
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
 }
