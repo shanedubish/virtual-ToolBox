@@ -94,7 +94,7 @@ class Main extends React.Component {
   render() {
     return (
       <div className="main">
-        <h3>Main Page</h3>
+        <h1>Main Page</h1>
 
         <main>
           {this.props.tools.map((tool, i) => {

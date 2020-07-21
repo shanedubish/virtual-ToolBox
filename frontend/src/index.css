@@ -87,3 +87,7 @@ form {
     padding-top: 20px;
   }
 }
+.about main {
+  font-size: 2.5em;
+  text-shadow: 0px 1px 4px #ffffff;
+}
