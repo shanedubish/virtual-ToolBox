@@ -8,9 +8,9 @@ class About extends React.Component {
         <main>
           <h2>Welcome to virtual-ToolBox</h2>
           <p>
-            * Have you ever went to do a project in your home and could not a
-            tool you needed? You know you have the tool you were looking for but
-            it was MIA. Or maybe you forgot that you had a tool you need but
+            * Have you ever went to do a project in your home and could not find
+            a tool you needed? You know you have the tool you were looking for
+            but it was MIA. Or maybe you forgot that you had a tool you need but
             bought another one just to find out later now you have two of those
             tools. This is the place for you!!
             <br />
@@ -23,7 +23,7 @@ class About extends React.Component {
             image.
             <br />
             <br />* Also a helpful feature makes it possible with just a click
-            of the mouse to buy another tool on Amozon or Ebay if you tool is
+            of the mouse to buy another tool on Amazon or Ebay if your tool is
             lost or broken.
           </p>
         </main>
