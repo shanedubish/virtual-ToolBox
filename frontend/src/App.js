@@ -8,7 +8,7 @@ import Navigation from "./components/Nav.js";
 import axios from "axios";
 
 class App extends React.Component {
-  state = { tools: [] };
+  state = { tools: [], editToggle: false };
 
   //Get Tools
   getTools = () => {
