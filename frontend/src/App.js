@@ -76,6 +76,7 @@ class App extends React.Component {
       .delete("http://127.0.0.1:8000/api/" + event.target.value)
       .then((response) => {
         this.setState({ tools: response.data });
+        this.getTools();
       });
   };
   render() {

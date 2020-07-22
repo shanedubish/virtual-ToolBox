@@ -23,8 +23,8 @@ class About extends React.Component {
             image.
             <br />
             <br />* Also a helpful feature makes it possible with just a click
-            of the mouse to buy another tool on Amazon or Ebay if your tool is
-            lost or broken.
+            of the mouse to search for another tool on Amazon or Ebay if your
+            tool is lost or broken.
           </p>
         </main>
       </div>
