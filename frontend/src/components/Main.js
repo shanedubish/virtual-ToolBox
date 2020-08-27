@@ -9,6 +9,7 @@ class Main extends React.Component {
   componentDidMount() {
     this.props.getTools();
   }
+
   toggleEditForm = () => {
     this.setState({
       editToggle: !this.state.editToggle,
