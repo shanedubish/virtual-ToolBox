@@ -77,8 +77,8 @@ class App extends React.Component {
       .then((response) => {
         this.setState({ tools: response.data });
         this.getTools();
-        window.location.reload(false);
       });
+    window.location.reload(false);
   };
   render() {
     return (
